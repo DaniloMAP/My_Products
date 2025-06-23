@@ -1,0 +1,58 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  # Configurações do analisador
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "build/**"
+
+linter:
+  # The lint rules applied to this project can be customized in the
+  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
+  # included above or to enable additional rules. A list of all available lints
+  # and their documentation is published at https://dart.dev/lints.
+  rules:
+    # === IMPORTS ===
+    # Força o uso de imports relativos
+    prefer_relative_imports: true
+    # Ordena os imports
+    directives_ordering: true
+    
+    # === FORMATAÇÃO BÁSICA ===
+    # Prefere aspas simples
+    prefer_single_quotes: true
+    # Força trailing commas em listas/funções
+    require_trailing_commas: true
+    # Usa const quando possível
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    
+    # === NAMING ===
+    # Convenções básicas de nomenclatura
+    camel_case_types: true
+    file_names: true
+    non_constant_identifier_names: true
+    
+    # === BÁSICO FLUTTER ===
+    # Usa key em widgets quando necessário
+    use_key_in_widget_constructors: true
+    # Evita containers desnecessários
+    avoid_unnecessary_containers: true
+    # Usa SizedBox ao invés de Container vazio
+    sized_box_for_whitespace: true
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options

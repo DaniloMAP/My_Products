@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/product_controller.dart';
-
 import '../widgets/product_states.dart';
 import '../widgets/products_grid.dart';
 import '../widgets/search_bar_widget.dart';
@@ -15,8 +14,10 @@ class ProductPage extends StatelessWidget {
     final scrollCtrl = ScrollController();
 
     scrollCtrl.addListener(() {
-      if (scrollCtrl.position.pixels >=
-          scrollCtrl.position.maxScrollExtent - 100) {
+      if (ctrl.shouldLoadMore(
+        scrollCtrl.position.pixels,
+        scrollCtrl.position.maxScrollExtent,
+      )) {
         ctrl.loadMore();
       }
     });
@@ -55,7 +56,6 @@ class ProductPage extends StatelessWidget {
       body: Column(
         children: [
           SearchBarWidget(controller: ctrl),
-
           Expanded(
             child: Obx(() {
               if (ctrl.isLoading.value &&
